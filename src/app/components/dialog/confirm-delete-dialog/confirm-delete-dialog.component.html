@@ -1,0 +1,10 @@
+<div mat-dialog-title color="warn">
+  <h3 class="mat-display-2">Confirm Delete?</h3>
+</div>
+<mat-dialog-content>
+  <h2 style="color:red">Are you sure to delete this data?</h2>
+</mat-dialog-content>
+<mat-dialog-actions align="justify">
+  <button mat-raised-button color="primary" [mat-dialog-close]="false" cdkFocusInitial><mat-icon>cached</mat-icon> Cancel</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true"><mat-icon>done</mat-icon> Yes</button>
+</mat-dialog-actions>

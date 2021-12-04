@@ -1,0 +1,29 @@
+
+<form class="form-container" [formGroup]="locationForm" (submit)="insert()">
+  <div class="f">
+    <h2 class="mat-display-3">Create new Location</h2>
+  </div>
+  <mat-form-field class="f-w">
+    <mat-label>Location Name</mat-label>
+    <input matInput formControlName="locationName">
+    <mat-error *ngIf="f.locationName.touched && f.locationName.errors">Location name is required!!</mat-error>
+  </mat-form-field>
+  <mat-form-field class="f-w">
+    <mat-label>City Name</mat-label>
+    <input matInput formControlName="cityName">
+    <mat-error *ngIf="f.cityName.touched && f.cityName.errors">City name is required!!</mat-error>
+  </mat-form-field>
+  <div class="f-w">
+    <button [disabled]="locationForm.invalid" mat-raised-button type="submit" color="accent"><mat-icon>save_alt</mat-icon> Save</button>
+  </div>
+  <div class="f-w">
+    <a mat-raised-button color="accent" [routerLink]="['/location']"><mat-icon>arrow_left_alt</mat-icon> Back to list</a>
+  </div>
+</form>
+
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title class="content">“Location matters more than you think.” <mat-icon>location_on</mat-icon></mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/Images/Tejgaon.jpg" alt="" style="width:100%; height:240px; margin-left: 0px;">
+</mat-card>

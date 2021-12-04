@@ -1,0 +1,25 @@
+
+<form class="form-container" [formGroup]="bloodGroupForm" (submit)="update()">
+  <div class="f">
+    <h2 class="mat-display-2">Edit Blood Group</h2>
+  </div>
+  <mat-form-field class="f-w">
+    <mat-label>Blood Group</mat-label>
+    <input matInput formControlName="groupName">
+    <mat-error *ngIf="f.groupName.touched && f.groupName.errors">Blood group is required!!</mat-error>
+  </mat-form-field>
+  <div class="f-w">
+    <button [disabled]="bloodGroupForm.invalid" mat-raised-button type="submit" color="accent"><mat-icon>save_alt</mat-icon> Update</button>
+  </div>
+  <div class="f-w">
+    <a mat-raised-button color="accent" [routerLink]="['/bloodGroup']"><mat-icon>arrow_left_alt</mat-icon> Back to list</a>
+  </div>
+</form>
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title class="content"><mat-icon>favorite_border</mat-icon> “A life may depend on a gesture from you, a bottle of Blood.” <mat-icon>favorite_border</mat-icon></mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="../../../assets/justImage/red-header.jpg" alt="" style="width:100%; height:260px; margin-left: 0px;">
+</mat-card>
+
+

@@ -1,0 +1,29 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  /*width: 260px;*/
+}
+.sidenav {
+  background-color: darkred;
+  color: white;
+}
+.mat-toolbar {
+  background-color: darkred;
+  color: white;
+}
+.navlist {
+  color: white;
+}
+.sidenav .mat-toolbar {
+  background: inherit;
+  font-family: 'Lucida Calligraphy';
+  font-size: x-large;
+}
+mat-sidenav-content {
+  background-image: url('../../../assets/Images/bb18.jpg');
+}
+.filter {
+  flex: 1 1 auto;
+}

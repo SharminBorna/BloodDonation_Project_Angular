@@ -1,0 +1,28 @@
+.form-container {
+  width: 65%;
+  margin: 5px auto 10px auto;
+}
+
+.f-w {
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.f {
+  padding-top: 10px;
+}
+
+.card-container {
+  box-sizing: border-box;
+  /*width: 90%;*/
+  width: calc(100%-30px);
+  margin: 15px 10px 10px 15px;
+}
+
+.content {
+  font-family: 'Lucida Calligraphy';
+  color: darkred;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}

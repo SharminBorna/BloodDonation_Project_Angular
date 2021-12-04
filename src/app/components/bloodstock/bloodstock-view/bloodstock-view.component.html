@@ -1,0 +1,64 @@
+<div>
+
+    <img mat-card-image src="../../../assets/justImage/RBC.png " alt="" style="width:100%; padding-top:16px; height:200px; margin-left: 0px;">
+
+  <mat-card class="card-container mat-elevation-z10">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image">
+        <img mat-card-image src="../../../assets/justImage/favicon.jpg" alt="">
+      </div>
+      <mat-card-title class="card-title">
+        <h2 class="mat-display-2">Blood Stock List</h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Blood Stock Available...
+      </mat-card-subtitle>
+      <span class="filter"></span>
+      <a [routerLink]="['/add-stock']" mat-mini-fab color="primary"><mat-icon>add</mat-icon></a>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+
+      <div class="table-container">
+        <mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="bloodGroup">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Blood Group</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{getBloodGroup(element.bloodGroupID) }}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="bagNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Bag Number</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.bagNumber}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="entryDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Entry Date</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.entryDate|date:'MMM dd, yyyy'}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="expiredDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Expired Date</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.expiredDate|date:'MMM dd, yyyy' }}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="selfNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Self Number</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.selfNumber }}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="donor">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Donor Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{getDonor(element.profileId) }}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary" [routerLink]="['/edit-stock', element.bloodStockID]"><mat-icon>edit</mat-icon></button>
+              <button mat-icon-button color="warn" (click)="confirmDelete(element)"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="columnList"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: columnList;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>

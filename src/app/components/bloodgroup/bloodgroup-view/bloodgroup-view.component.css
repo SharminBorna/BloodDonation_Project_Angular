@@ -1,0 +1,39 @@
+
+.main{
+    width:100%;
+}
+
+.card-container {
+  box-sizing: border-box;
+  width: 100%;
+  /*width: calc(100%-30px);*/
+  margin: 15px 10px 10px 15px;
+}
+
+.table-container {
+  box-sizing: border-box;
+  width: calc(100%-20px);
+  margin: 0 auto;
+}
+.header-image {
+  padding: 10px;
+}
+
+.left {
+  float: left;
+  width:37%;
+}
+
+.right {
+  float: right;
+  width:60%;
+  padding-right:30px;
+}
+.content {
+  font-family: 'Lucida Calligraphy';
+  color: darkred;
+  font-weight: bold;
+  font-size: x-large;
+  text-align: center;
+}
+

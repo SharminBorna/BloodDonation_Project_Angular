@@ -1,0 +1,84 @@
+
+
+<mat-card class="card-container mat-elevation-z10">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image">
+      <img mat-card-image src="../../../assets/justImage/user.png" alt="">
+    </div>
+    <mat-card-title class="card-title">
+      <h2 class="mat-display-2">Profile List</h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      Registered Member...
+    </mat-card-subtitle>
+    <span class="filter"></span>
+    <a [routerLink]="['/add-profile']" mat-mini-fab color="primary"><mat-icon>add</mat-icon></a>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-divider></mat-divider>
+
+    <div class="table-container">
+      <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="picture">
+          <mat-header-cell *matHeaderCellDef>Picture</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <img style="width:50px" class="row-image" src="http://localhost:63594/Uploads/{{element.picture}}" />
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.username}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="role">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Role</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.role}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="age">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.age}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Weight (in kg)</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.weight}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.gender }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="bloodGroup">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Blood Group</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getBloodGroup(element.bloodGroupID) }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="contact">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Contact</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.contactNo }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.email }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="location">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{getLocation(element.locationID) }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" [routerLink]="['/edit-profile', element.profileID]"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="confirmDelete(element)"><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button color="accent" [routerLink]="['/donate']"><mat-icon>info</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnList"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnList;"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

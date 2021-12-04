@@ -1,0 +1,36 @@
+.form-container {
+  width: 65%;
+  margin: 5px auto 10px auto;
+  padding-right: 50px;
+}
+
+.f-w {
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.f {
+  padding-top: 20px;
+}
+
+.main {
+  width: 100%;
+}
+
+.card-container {
+  box-sizing: border-box;
+  width: 100%;
+  /*width: calc(100%-30px);*/
+  margin: 20px 10px 10px 20px;
+}
+
+.right {
+  float: right;
+  width: 45%;
+}
+
+.left {
+  float: left;
+  width: 55%;
+  margin-top: 10px;
+}

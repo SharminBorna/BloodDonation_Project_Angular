@@ -1,0 +1,100 @@
+<!--<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInviewPort [opened]="false">
+    <mat-toolbar>Blood Donation</mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item class="navlist" (click)="drawer.toggle()" [routerLink]="['/home']"><mat-icon>home</mat-icon> Home</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item class="navlist" (click)="drawer.toggle()" [routerLink]="['/profile']"><mat-icon>portrait</mat-icon> Profile</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item class="navlist" (click)="drawer.toggle()" [routerLink]="['/bloodGroup']"><mat-icon>invert_colors</mat-icon> Blood Group</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item class="navlist" (click)="drawer.toggle()" [routerLink]="['/location']"><mat-icon>location_city</mat-icon> Location</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item class="navlist" (click)="drawer.toggle()" [routerLink]="['/hospital']"><mat-icon>local_hospital</mat-icon> Hospital</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="red">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Sidenav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="top-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>-->
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" mode="side" [opened]="true">
+
+      <mat-toolbar>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="isExpanded=!isExpanded">
+          <mat-icon aria-label="Sidenav toggle icon">chevron_right</mat-icon>
+        </button>
+        <div *ngIf="isExpanded">Blood Donation</div>
+      </mat-toolbar>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <a mat-list-item class="navlist" [routerLink]="['/home']">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/home']"> Home</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/profile']">
+          <mat-icon mat-list-icon>portrait</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/profile']"> Profile</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/bloodGroup']">
+          <mat-icon mat-list-icon>invert_colors</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/bloodGroup']"> Blood Group</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/location']">
+          <mat-icon mat-list-icon>location_city</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/location']"> Location</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/hospital']">
+          <mat-icon mat-list-icon>local_hospital</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/hospital']"> Hospital</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/request']">
+          <mat-icon mat-list-icon>question_answer</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/request']"> Blood Request</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/donate']">
+          <mat-icon mat-list-icon>opacity</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/donate']"> Donate Blood</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item class="navlist" [routerLink]="['/stock']">
+          <mat-icon mat-list-icon>assignment_returned</mat-icon>
+          <span mat-list-item class="navlist" *ngIf="isExpanded" (click)="isExpanded=!isExpanded" [routerLink]="['/stock']"> Blood Stock</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Sidenav toggle icon">menu</mat-icon>
+        </button>
+        <span class="filter"></span>
+        <a mat-menu-item class="w-150 navlist" [routerLink]="['/login']">
+          <mat-icon class="navlist">login</mat-icon>
+          <span>Login</span>
+        </a>
+        <a mat-menu-item class="w-150 navlist" [routerLink]="['/logout']">
+          <mat-icon class="navlist">logout</mat-icon>
+          <span>Logout</span>
+        </a>
+      </mat-toolbar>
+      <div class="top-container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="left">
+    <mat-card class="card-container">
+      <mat-card-header>
+        <mat-card-title class="content"></mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="../../../assets/Images/ambulance.jpg" alt="" style="width:760px; height:550px; margin-left: 5px;">
+    </mat-card>
+  </div>
+  <div class="right">
+    <form class="form-container" [formGroup]="hospitalForm" (submit)="update()">
+      <div class="f">
+        <h2 class="mat-display-2">Edit Hospital</h2>
+      </div>
+      <mat-form-field class="f-w">
+        <mat-label>Hospital Name</mat-label>
+        <input matInput formControlName="hospitalName">
+        <mat-error *ngIf="f.hospitalName.touched && f.hospitalName.errors">Hospital name is required!!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="f-w">
+        <mat-label>Hospital Address</mat-label>
+        <input matInput formControlName="hospitalAddress">
+        <mat-error *ngIf="f.hospitalAddress.touched && f.hospitalAddress.errors">Hospital address is required!!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="f-w">
+        <mat-label>Contact No</mat-label>
+        <input matInput formControlName="contactNo">
+        <mat-error *ngIf="f.contactNo.touched && f.contactNo.errors">Contact No is required!!</mat-error>
+      </mat-form-field>
+      <div class="f-w">
+        <button [disabled]="hospitalForm.invalid" mat-raised-button type="submit" color="primary"><mat-icon>save_alt</mat-icon> Update</button>
+      </div>
+      <div class="f-w">
+        <a mat-raised-button color="primary" [routerLink]="['/hospital']"><mat-icon>arrow_left_alt</mat-icon> Back to list</a>
+      </div>
+    </form>
+  </div>
+</div>
